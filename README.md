@@ -10,6 +10,21 @@ ex) 2020.09.02
 4) 다시 일의 자리 숫자가 같은 걸 부른다
 5) 3)으로 가서 무한반복
 
+# 안내
+* getInfoByNum은 개인정보보호를 위하여 코드에 기재하지 않았으며 구조는 다음과 같습니다.<br>
+<pre><code>def getInfoByNum(num):
+    ourClass = [
+        {
+            "id": 1,
+            "name": "이름",
+            ...
+        },
+        {...},
+        ...
+    ]
+    return ourClass[num-1]
+</code></pre>
+
 # 사용
 [KakaoScheduleAlarm](https://github.com/JominJun/KakaoScheduleAlarm)
 
