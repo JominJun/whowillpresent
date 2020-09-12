@@ -1,7 +1,7 @@
-import time, json
+import time, math
 
 day = int(time.strftime("%d", time.localtime(time.time())))
-std_presenter = sorted([i for i in range(1, 36) if i%10 == day%10], key = lambda k:abs(k-day))
+std_presenter = sorted([i for i in range(1, 36) if i%10 == day%10], key=lambda k: k-day if k-day >= 0 else math.inf)
 plus_presenter = [i for i in range(1, 36) if i%10 == (int(str(std_presenter[-1])[0])+int(str(std_presenter[-1])[1]))%10]
 mul_presenter = [i for i in range(1, 36) if i%10 == (int(str(std_presenter[-1])[0])*int(str(std_presenter[-1])[1]))%10]
 reverse_presenter =[i for i in range(1, 36) if i%10 == (int(str(std_presenter[-1])[1]+str(std_presenter[-1])[0]))%10]
@@ -28,4 +28,6 @@ result = {
     }
 }
 
-print(json.dumps(result, indent="\t"))
+def getInfoByNum(num):
+    ourClass = [...] # 비밀이에요 ><
+    return ourClass[num-1]
