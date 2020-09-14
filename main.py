@@ -1,19 +1,37 @@
 import time, math
 
 def makeAddPresenter(arr):
-    if len(arr) and arr[-1] // 10: # 비어있는 배열이 아니고 두 자리수 숫자라면
-        return [i for i in range(1, 36) if i % 10 == (int(str(arr[-1])[0]) + int(str(arr[-1])[1])) % 10]
-    return [] # 한 자리수 숫자거나 비어있다면
+    try:
+        if len(arr): # 비어있는 배열이 아니라면
+            if arr[-1] // 10:
+                return [i for i in range(1, 36) if i % 10 == (int(str(arr[-1])[0]) + int(str(arr[-1])[1])) % 10]
+            else:
+                return [i for i in range(1, 36) if i % 10 == (int(str(arr[-2])[0]) + int(str(arr[-2])[1])) % 10]
+        return [] # 한 자리수 숫자거나 비어있다면
+    except IndexError:
+        return []
 
 def makeMulPresenter(arr):
-    if len(arr) and arr[-1] // 10:
-        return [i for i in range(1, 36) if i % 10 == ((int(str(arr[-1])[0])) * int(str(arr[-1])[1])) % 10]
-    return []
+    try:
+        if len(arr):  # 비어있는 배열이 아니라면
+            if arr[-1] // 10:
+                return [i for i in range(1, 36) if i % 10 == (int(str(arr[-1])[0]) * int(str(arr[-1])[1])) % 10]
+            else:
+                return [i for i in range(1, 36) if i % 10 == (int(str(arr[-2])[0]) * int(str(arr[-2])[1])) % 10]
+        return []  # 한 자리수 숫자거나 비어있다면
+    except IndexError:
+        return []
 
 def makeReversePresenter(arr):
-    if len(arr) and arr[-1] // 10:
-        return [i for i in range(1, 36) if i % 10 == int(str(arr[-1])[1] + str(arr[-1])[0]) % 10]
-    return []
+    try:
+        if len(arr):
+            if arr[-1] // 10:
+                return [i for i in range(1, 36) if i % 10 == int(str(arr[-1])[1] + str(arr[-1])[0]) % 10]
+            else:
+                return [i for i in range(1, 36) if i % 10 == int(str(arr[-2])[1] + str(arr[-2])[0]) % 10]
+        return []
+    except IndexError:
+        return []
 
 
 day = int(time.strftime("%d", time.localtime(time.time())))
